@@ -1,51 +1,846 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>BPSC TRE 4.0 | Preparation Portal</title><style>
-:root{--navy:#102a56;--blue:#1769e0;--red:#ef2222;--green:#159447;--purple:#6935d5;--yellow:#ffd52f;--light:#f5f8fc;--dark:#152238}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Arial,Helvetica,sans-serif;background:var(--light);color:var(--dark);line-height:1.5}a{text-decoration:none;color:inherit}button{font-family:inherit;cursor:pointer}
-header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.98);box-shadow:0 2px 15px rgba(0,0,0,.08)}
-.navbar{max-width:1500px;margin:auto;min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:9px 22px}
-.logo{display:flex;align-items:center;gap:10px}.logo-mark{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#123c7a,#ef2222);color:#fff;font-size:23px}.logo strong{display:block;color:var(--navy);font-size:22px;line-height:1}.logo strong span{color:var(--red)}.logo small{font-size:10px;font-weight:700;color:#526078}
-.nav-links{display:flex;gap:4px}.nav-links a{padding:9px 11px;border-radius:10px;font-weight:700;font-size:14px}.nav-links a:hover,.nav-links a.active{background:#eaf1ff;color:var(--blue)}
-.login-btn{border:0;background:var(--red);color:#fff;padding:12px 17px;border-radius:12px;font-size:14px;font-weight:800}.menu-btn{display:none;border:0;background:#edf3ff;padding:10px;border-radius:10px;font-size:20px}
-.hero{position:relative;min-height:535px;overflow:hidden;background:linear-gradient(90deg,rgba(7,31,68,.82),rgba(7,31,68,.25) 55%,rgba(255,255,255,.05)),url("bpsc-bg.png") center/cover no-repeat}
-.hero-overlay{max-width:1500px;margin:auto;min-height:535px;padding:65px 35px;display:flex;align-items:center}.hero-content{max-width:820px;color:#fff}.badge{display:inline-block;background:var(--red);padding:7px 16px;border-radius:30px;font-weight:800;margin-bottom:15px}.hero h1{font-size:clamp(48px,7vw,82px);line-height:.95;margin-bottom:16px;letter-spacing:-3px}.hero h1 span{color:#ff3131}.hero-sub{display:inline-block;background:var(--yellow);color:#122b56;padding:8px 20px;border-radius:30px;font-size:clamp(18px,2.5vw,29px);font-weight:900;margin-bottom:16px}.hero p{font-size:19px;font-weight:600}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.primary-btn,.secondary-btn{border:0;padding:14px 22px;border-radius:13px;font-size:15px;font-weight:900}.primary-btn{background:#1769e0;color:#fff}.secondary-btn{background:#fff;color:#143261}
-.container{max-width:1400px;margin:auto;padding:0 24px}
-.category-wrap{margin-top:-34px;position:relative;z-index:5}.category-box{background:#fff;border-radius:20px;box-shadow:0 12px 35px rgba(15,42,82,.14);padding:14px;display:flex;align-items:center;gap:10px;overflow:auto}.category-title{font-weight:900;white-space:nowrap;padding:0 9px}.category-btn{min-width:175px;border:1px solid #dce3ee;background:#f4f6f9;border-radius:12px;padding:12px 15px;font-size:14px;font-weight:800}.category-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
-.home-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:38px 0 55px}.home-card{min-height:225px;border-radius:23px;padding:27px;color:#fff;position:relative;overflow:hidden;box-shadow:0 12px 35px rgba(15,42,82,.14)}.home-card:after{content:"";position:absolute;right:-45px;bottom:-70px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.14)}.home-card.blue{background:linear-gradient(135deg,#1266d8,#16458d)}.home-card.green{background:linear-gradient(135deg,#17a14f,#08713a)}.home-card.purple{background:linear-gradient(135deg,#7440df,#4820a8)}.icon{width:57px;height:57px;border-radius:16px;background:#fff;color:var(--blue);display:grid;place-items:center;font-size:27px;margin-bottom:14px}.home-card h2{font-size:26px;margin-bottom:5px}.home-card p{opacity:.94}.card-btn{display:inline-block;margin-top:18px;padding:10px 19px;border-radius:24px;background:rgba(0,0,0,.25);font-weight:800}
-.welcome{text-align:center;padding:15px 0 40px}.welcome h2{font-size:29px;color:var(--navy)}.welcome p{color:#657184;margin-top:6px}
-.page-head{background:linear-gradient(135deg,#102a56,#1769e0);color:#fff;padding:45px 24px}.page-head-inner{max-width:1200px;margin:auto}.page-head h1{font-size:38px}.page-head p{margin-top:6px;opacity:.9}
-.section{padding:34px 0}.section-head{margin-bottom:18px}.section-head h2{font-size:29px;color:var(--navy)}.section-head p{color:#667085;margin-top:4px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid #e4e9f1;border-radius:18px;padding:20px;box-shadow:0 7px 25px rgba(20,45,85,.07)}.card h3{margin:10px 0 6px;font-size:19px}.meta{color:#667085;font-size:14px}.tag{display:inline-block;background:#eaf1ff;color:var(--blue);padding:5px 9px;border-radius:7px;font-size:11px;font-weight:900}.price-row{display:flex;align-items:center;justify-content:space-between;margin-top:17px}.price{font-size:22px;font-weight:900;color:var(--red)}.test-btn{border:0;background:var(--navy);color:#fff;padding:10px 15px;border-radius:10px;font-weight:800}
-footer{background:#102a56;color:#fff;margin-top:30px}.footer-inner{max-width:1400px;margin:auto;padding:28px 24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-inner p{color:#d4deef;font-size:13px}.footer-bottom{text-align:center;padding:13px;border-top:1px solid rgba(255,255,255,.12);color:#c7d3e7;font-size:12px}
-.toast{position:fixed;right:18px;bottom:18px;z-index:2000;background:#102a56;color:#fff;padding:13px 17px;border-radius:11px;display:none;box-shadow:0 12px 35px rgba(15,42,82,.2)}
-@media(max-width:1050px){.nav-links{display:none}.menu-btn{display:block}.login-btn{margin-left:auto}.grid{grid-template-columns:1fr 1fr}.home-cards{grid-template-columns:1fr 1fr}}
-@media(max-width:700px){.navbar{padding:8px 13px}.logo strong{font-size:18px}.logo small{font-size:9px}.logo-mark{width:40px;height:40px}.hero,.hero-overlay{min-height:500px}.hero-overlay{padding:50px 18px}.hero h1{font-size:48px;letter-spacing:-2px}.hero p{font-size:16px}.container{padding:0 14px}.category-wrap{margin-top:-24px}.category-title{display:none}.category-btn{min-width:150px;font-size:13px}.home-cards,.grid{grid-template-columns:1fr}.home-card{min-height:190px}.page-head h1{font-size:31px}}
-</style></head><body>
-<header><nav class="navbar">
-<a href="index.html" class="logo"><div class="logo-mark">🎓</div><div><strong>BPSC <span>TRE 4.0</span></strong><small>Teacher Recruitment Exam</small></div></a>
-<div class="nav-links"><a class="active" href="index.html">🏠 Home</a><a href="mock-tests.html">📝 Mock Test</a><a href="pyq.html">📄 PYQ</a><a href="notes.html">📚 Notes</a></div>
-<button class="login-btn" onclick="msg('Login / Sign Up baad mein connect karenge.')">👤 Login / Sign Up</button><button class="menu-btn">☰</button>
-</nav></header>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<section class="hero"><div class="hero-overlay"><div class="hero-content">
-<span class="badge">बिहार शिक्षक भर्ती</span><h1>BPSC <span>TRE 4.0</span></h1><div class="hero-sub">Teacher Recruitment Exam</div>
-<p>Prepare Smart &nbsp; | &nbsp; Practice More &nbsp; | &nbsp; Crack TRE 4.0</p>
-<div class="hero-actions"><a class="primary-btn" href="mock-tests.html">🚀 Start Mock Test</a><a class="secondary-btn" href="pyq.html">📄 Explore PYQ</a></div>
-</div></div></section>
+<title>BPSC TRE 4.0 | Preparation Portal</title>
 
-<div class="container category-wrap"><div class="category-box"><div class="category-title">👥 Select Your Category</div>
-<button class="category-btn active">Primary (Class 1–5)</button><button class="category-btn">Middle School (Class 6–8)</button><button class="category-btn">Secondary (Class 9–10)</button><button class="category-btn">Higher Secondary (Class 11–12)</button>
-</div></div>
+<style>
+:root{
+--navy:#102a56;
+--blue:#1769e0;
+--red:#ef2222;
+--green:#159447;
+--purple:#6935d5;
+--yellow:#ffd52f;
+--light:#f5f8fc;
+--dark:#152238
+}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
+
+html{
+scroll-behavior:smooth
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:var(--light);
+color:var(--dark);
+line-height:1.5
+}
+
+a{
+text-decoration:none;
+color:inherit
+}
+
+button{
+font-family:inherit;
+cursor:pointer
+}
+
+/* HEADER */
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(255,255,255,.98);
+box-shadow:0 2px 15px rgba(0,0,0,.08)
+}
+
+.navbar{
+max-width:1500px;
+margin:auto;
+min-height:76px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+padding:9px 22px
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px
+}
+
+.logo-mark{
+width:44px;
+height:44px;
+border-radius:12px;
+display:grid;
+place-items:center;
+background:linear-gradient(135deg,#123c7a,#ef2222);
+color:#fff;
+font-size:23px
+}
+
+.logo strong{
+display:block;
+color:var(--navy);
+font-size:22px;
+line-height:1
+}
+
+.logo strong span{
+color:var(--red)
+}
+
+.logo small{
+font-size:10px;
+font-weight:700;
+color:#526078
+}
+
+.nav-links{
+display:flex;
+gap:4px
+}
+
+.nav-links a{
+padding:9px 11px;
+border-radius:10px;
+font-weight:700;
+font-size:14px
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+background:#eaf1ff;
+color:var(--blue)
+}
+
+.login-btn{
+border:0;
+background:var(--red);
+color:#fff;
+padding:12px 17px;
+border-radius:12px;
+font-size:14px;
+font-weight:800
+}
+
+.menu-btn{
+display:none;
+border:0;
+background:#edf3ff;
+padding:10px;
+border-radius:10px;
+font-size:20px
+}
+
+/* HERO */
+
+.hero{
+position:relative;
+min-height:535px;
+overflow:hidden;
+background:
+linear-gradient(
+90deg,
+rgba(7,31,68,.82),
+rgba(7,31,68,.25) 55%,
+rgba(255,255,255,.05)
+),
+url("bpsc-bg.png") center/cover no-repeat
+}
+
+.hero-overlay{
+max-width:1500px;
+margin:auto;
+min-height:535px;
+padding:65px 35px;
+display:flex;
+align-items:center
+}
+
+.hero-content{
+max-width:820px;
+color:#fff
+}
+
+.badge{
+display:inline-block;
+background:var(--red);
+padding:7px 16px;
+border-radius:30px;
+font-weight:800;
+margin-bottom:15px
+}
+
+.hero h1{
+font-size:clamp(48px,7vw,82px);
+line-height:.95;
+margin-bottom:16px;
+letter-spacing:-3px
+}
+
+.hero h1 span{
+color:#ff3131
+}
+
+.hero-sub{
+display:inline-block;
+background:var(--yellow);
+color:#122b56;
+padding:8px 20px;
+border-radius:30px;
+font-size:clamp(18px,2.5vw,29px);
+font-weight:900;
+margin-bottom:16px
+}
+
+.hero p{
+font-size:19px;
+font-weight:600
+}
+
+.hero-actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:22px
+}
+
+.primary-btn,
+.secondary-btn{
+border:0;
+padding:14px 22px;
+border-radius:13px;
+font-size:15px;
+font-weight:900
+}
+
+.primary-btn{
+background:#1769e0;
+color:#fff
+}
+
+.secondary-btn{
+background:#fff;
+color:#143261
+}
+
+/* CONTAINER */
+
+.container{
+max-width:1400px;
+margin:auto;
+padding:0 24px
+}
+
+/* LIVE UPDATE */
+
+.live-wrap{
+margin-top:18px;
+position:relative;
+z-index:10
+}
+
+.live-ticker{
+background:#fff;
+border-radius:14px;
+box-shadow:0 8px 25px rgba(15,42,82,.12);
+display:flex;
+align-items:center;
+overflow:hidden;
+height:48px;
+border:1px solid #e5eaf2
+}
+
+.live-label{
+flex:0 0 auto;
+background:#ef2222;
+color:#fff;
+font-weight:900;
+padding:12px 16px;
+z-index:2;
+font-size:14px
+}
+
+.live-track{
+overflow:hidden;
+white-space:nowrap;
+flex:1
+}
+
+.live-text{
+display:inline-block;
+padding-left:100%;
+animation:liveScroll 22s linear infinite;
+color:#102a56;
+font-weight:700;
+font-size:14px
+}
+
+.live-text span{
+margin-right:70px
+}
+
+@keyframes liveScroll{
+0%{transform:translateX(0)}
+100%{transform:translateX(-100%)}
+}
+
+/* CATEGORY */
+
+.category-wrap{
+margin-top:12px;
+position:relative;
+z-index:5
+}
+
+.category-box{
+background:#fff;
+border-radius:20px;
+box-shadow:0 12px 35px rgba(15,42,82,.14);
+padding:14px;
+display:flex;
+align-items:center;
+gap:10px;
+overflow:auto
+}
+
+.category-title{
+font-weight:900;
+white-space:nowrap;
+padding:0 9px
+}
+
+.category-btn{
+min-width:175px;
+border:1px solid #dce3ee;
+background:#f4f6f9;
+border-radius:12px;
+padding:12px 15px;
+font-size:14px;
+font-weight:800;
+display:block
+}
+
+.category-btn.active{
+background:var(--blue);
+color:#fff;
+border-color:var(--blue)
+}
+
+/* HOME CARDS */
+
+.home-cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+margin:38px 0 55px
+}
+
+.home-card{
+min-height:225px;
+border-radius:23px;
+padding:27px;
+color:#fff;
+position:relative;
+overflow:hidden;
+box-shadow:0 12px 35px rgba(15,42,82,.14)
+}
+
+.home-card:after{
+content:"";
+position:absolute;
+right:-45px;
+bottom:-70px;
+width:180px;
+height:180px;
+border-radius:50%;
+background:rgba(255,255,255,.14)
+}
+
+.home-card.blue{
+background:linear-gradient(135deg,#1266d8,#16458d)
+}
+
+.home-card.green{
+background:linear-gradient(135deg,#17a14f,#08713a)
+}
+
+.home-card.purple{
+background:linear-gradient(135deg,#7440df,#4820a8)
+}
+
+.icon{
+width:57px;
+height:57px;
+border-radius:16px;
+background:#fff;
+color:var(--blue);
+display:grid;
+place-items:center;
+font-size:27px;
+margin-bottom:14px
+}
+
+.home-card h2{
+font-size:26px;
+margin-bottom:5px
+}
+
+.home-card p{
+opacity:.94
+}
+
+.card-btn{
+display:inline-block;
+margin-top:18px;
+padding:10px 19px;
+border-radius:24px;
+background:rgba(0,0,0,.25);
+font-weight:800
+}
+
+/* WELCOME */
+
+.welcome{
+text-align:center;
+padding:15px 0 40px
+}
+
+.welcome h2{
+font-size:29px;
+color:var(--navy)
+}
+
+.welcome p{
+color:#657184;
+margin-top:6px
+}
+
+/* FOOTER */
+
+footer{
+background:#102a56;
+color:#fff;
+margin-top:30px
+}
+
+.footer-inner{
+max-width:1400px;
+margin:auto;
+padding:28px 24px;
+display:flex;
+justify-content:space-between;
+gap:20px;
+flex-wrap:wrap
+}
+
+.footer-inner p{
+color:#d4deef;
+font-size:13px
+}
+
+.footer-bottom{
+text-align:center;
+padding:13px;
+border-top:1px solid rgba(255,255,255,.12);
+color:#c7d3e7;
+font-size:12px
+}
+
+/* TOAST */
+
+.toast{
+position:fixed;
+right:18px;
+bottom:18px;
+z-index:2000;
+background:#102a56;
+color:#fff;
+padding:13px 17px;
+border-radius:11px;
+display:none
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1050px){
+
+.nav-links{
+display:none
+}
+
+.menu-btn{
+display:block
+}
+
+.login-btn{
+margin-left:auto
+}
+
+.home-cards{
+grid-template-columns:1fr 1fr
+}
+
+}
+
+@media(max-width:700px){
+
+.navbar{
+padding:8px 13px
+}
+
+.logo strong{
+font-size:18px
+}
+
+.logo small{
+font-size:9px
+}
+
+.logo-mark{
+width:40px;
+height:40px
+}
+
+.hero,
+.hero-overlay{
+min-height:500px
+}
+
+.hero-overlay{
+padding:50px 18px
+}
+
+.hero h1{
+font-size:48px;
+letter-spacing:-2px
+}
+
+.hero p{
+font-size:16px
+}
+
+.container{
+padding:0 14px
+}
+
+.live-wrap{
+margin-top:14px
+}
+
+.live-ticker{
+height:44px
+}
+
+.live-label{
+padding:11px 12px;
+font-size:12px
+}
+
+.live-text{
+font-size:12px;
+animation-duration:18s
+}
+
+.category-wrap{
+margin-top:10px
+}
+
+.category-title{
+display:none
+}
+
+.category-btn{
+min-width:150px;
+font-size:13px
+}
+
+.home-cards{
+grid-template-columns:1fr
+}
+
+.home-card{
+min-height:190px
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+
+<div class="logo-mark">🎓</div>
+
+<div>
+<strong>BPSC <span>TRE 4.0</span></strong>
+<small>Teacher Recruitment Exam</small>
+</div>
+
+</a>
+
+<div class="nav-links">
+
+<a class="active" href="index.html">🏠 Home</a>
+
+<a href="mock-tests.html">📝 Mock Test</a>
+
+<a href="pyq.html">📄 PYQ</a>
+
+<a href="notes.html">📚 Notes</a>
+
+</div>
+
+<button class="login-btn"
+onclick="msg('Login / Sign Up baad mein connect karenge.')">
+👤 Login / Sign Up
+</button>
+
+<button class="menu-btn">☰</button>
+
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-overlay">
+
+<div class="hero-content">
+
+<span class="badge">बिहार शिक्षक भर्ती</span>
+
+<h1>BPSC <span>TRE 4.0</span></h1>
+
+<div class="hero-sub">
+Teacher Recruitment Exam
+</div>
+
+<p>
+Prepare Smart &nbsp; | &nbsp;
+Practice More &nbsp; | &nbsp;
+Crack TRE 4.0
+</p>
+
+<div class="hero-actions">
+
+<a class="primary-btn" href="mock-tests.html">
+🚀 Start Mock Test
+</a>
+
+<a class="secondary-btn" href="pyq.html">
+📄 Explore PYQ
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LIVE UPDATE -->
+
+<div class="container live-wrap">
+
+<div class="live-ticker">
+
+<div class="live-label">
+🔴 LIVE
+</div>
+
+<div class="live-track">
+
+<div class="live-text">
+
+<span>📢 BPSC TRE 4.0 Latest Update</span>
+
+<span>📝 New Mock Tests Coming Soon</span>
+
+<span>📚 Study Notes Update</span>
+
+<span>📄 Previous Year Questions Update</span>
+
+<span>🔔 Important Teacher Recruitment Updates</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CATEGORY -->
+
+<div class="container category-wrap">
+
+<div class="category-box">
+
+<div class="category-title">
+👥 Select Your Category
+</div>
+
+<a class="category-btn active"
+href="mock-tests.html?category=primary">
+👨‍🏫 Primary (Class 1–5)
+</a>
+
+<a class="category-btn"
+href="mock-tests.html?category=middle">
+📘 Middle School (Class 6–8)
+</a>
+
+<a class="category-btn"
+href="mock-tests.html?category=secondary">
+🎓 Secondary (Class 9–10)
+</a>
+
+<a class="category-btn"
+href="mock-tests.html?category=higher">
+🏫 Higher Secondary (Class 11–12)
+</a>
+
+</div>
+
+</div>
+
 
 <div class="container">
-<div class="welcome"><h2>🎯 BPSC TRE 4.0 Preparation Portal</h2><p>Mock Test, Previous Year Questions aur Study Notes — sab alag pages mein.</p></div>
-<section class="home-cards">
-<a class="home-card blue" href="mock-tests.html"><div class="icon">📝</div><h2>Mock Test</h2><p>Real exam-style practice tests with timer and result.</p><span class="card-btn">View Mock Tests →</span></a>
-<a class="home-card green" href="pyq.html"><div class="icon">📄</div><h2>Previous Year Questions</h2><p>PYQ ko year aur level ke according organize kiya jayega.</p><span class="card-btn">View PYQ →</span></a>
-<a class="home-card purple" href="notes.html"><div class="icon">📚</div><h2>Study Notes</h2><p>Exam-oriented notes aur protected online viewing.</p><span class="card-btn">View Notes →</span></a>
-</section>
+
+<div class="welcome">
+
+<h2>
+🎯 BPSC TRE 4.0 Preparation Portal
+</h2>
+
+<p>
+Mock Test, Previous Year Questions aur Study Notes — sab alag pages mein.
+</p>
+
 </div>
-<footer><div class="footer-inner"><div><h2>BPSC TRE 4.0</h2><p>Mock Test • PYQ • Notes</p></div><div><p>Exam content ko official BPSC information ke according update kiya jayega.</p></div></div><div class="footer-bottom">© 2026 BPSC TRE 4.0 Preparation Portal</div></footer>
-<script>function msg(t){let x=document.createElement('div');x.className='toast';x.textContent=t;document.body.appendChild(x);x.style.display='block';setTimeout(()=>x.remove(),2500)}</script>
-</body></html>
+
+
+<section class="home-cards">
+
+<a class="home-card blue" href="mock-tests.html">
+
+<div class="icon">📝</div>
+
+<h2>Mock Test</h2>
+
+<p>
+Real exam-style practice tests with timer and result.
+</p>
+
+<span class="card-btn">
+View Mock Tests →
+</span>
+
+</a>
+
+
+<a class="home-card green" href="pyq.html">
+
+<div class="icon">📄</div>
+
+<h2>Previous Year Questions</h2>
+
+<p>
+PYQ ko year aur level ke according organize kiya jayega.
+</p>
+
+<span class="card-btn">
+View PYQ →
+</span>
+
+</a>
+
+
+<a class="home-card purple" href="notes.html">
+
+<div class="icon">📚</div>
+
+<h2>Study Notes</h2>
+
+<p>
+Exam-oriented notes aur protected online viewing.
+</p>
+
+<span class="card-btn">
+View Notes →
+</span>
+
+</a>
+
+</section>
+
+</div>
+
+
+<footer>
+
+<div class="footer-inner">
+
+<div>
+
+<h2>BPSC TRE 4.0</h2>
+
+<p>Mock Test • PYQ • Notes</p>
+
+</div>
+
+<div>
+
+<p>
+Exam content ko official BPSC information ke according update kiya jayega.
+</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 BPSC TRE 4.0 Preparation Portal
+</div>
+
+</footer>
+
+
+<script>
+
+function msg(t){
+
+let x=document.createElement('div');
+
+x.className='toast';
+
+x.textContent=t;
+
+document.body.appendChild(x);
+
+x.style.display='block';
+
+setTimeout(()=>x.remove(),2500);
+
+}
+
+</script>
+
+</body>
+</html>
