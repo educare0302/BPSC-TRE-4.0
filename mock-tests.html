@@ -527,7 +527,7 @@ footer{
 <span class="test-number">MOCK TEST 01</span>
 <h3 id="test01">Practice Test – 01</h3>
 <p>Exam-style questions • Timer • Result Analysis</p>
-<button class="start-btn" onclick="comingSoon()">
+<button class="start-btn" onclick="startTest01()">
   Start Test →
 </button>
 </article>
@@ -653,7 +653,24 @@ function backToCategories(){
   });
 }
 
+function startTest01(){
 
+  const category = document.getElementById("categoryTitle").innerText;
+
+  if(category.includes("Primary")){
+
+    window.location.href = "practice-test-01.html";
+
+  }else{
+
+    alert(
+      "Practice Test 01 abhi Primary (Class 1–5) ke liye available hai.\n\n" +
+      "Baaki categories ke tests jaldi add kiye jayenge."
+    );
+
+  }
+
+}
 function comingSoon(){
 
   alert(
