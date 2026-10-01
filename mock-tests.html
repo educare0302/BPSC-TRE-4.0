@@ -17,11 +17,7 @@
   --dark:#152238;
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
   font-family:Arial,Helvetica,sans-serif;
@@ -30,17 +26,9 @@ body{
   line-height:1.5;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
 
-button{
-  font-family:inherit;
-  cursor:pointer;
-}
-
-/* HEADER */
 header{
   position:sticky;
   top:0;
@@ -59,11 +47,7 @@ header{
   padding:8px 18px;
 }
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+.logo{display:flex;align-items:center;gap:10px}
 
 .logo-mark{
   width:42px;
@@ -76,26 +60,11 @@ header{
   font-size:22px;
 }
 
-.logo strong{
-  display:block;
-  color:var(--navy);
-  font-size:20px;
-}
+.logo strong{display:block;color:var(--navy);font-size:20px}
+.logo strong span{color:var(--red)}
+.logo small{font-size:9px;font-weight:700;color:#526078}
 
-.logo strong span{
-  color:var(--red);
-}
-
-.logo small{
-  font-size:9px;
-  font-weight:700;
-  color:#526078;
-}
-
-.nav-links{
-  display:flex;
-  gap:5px;
-}
+.nav-links{display:flex;gap:5px}
 
 .nav-links a{
   padding:9px 12px;
@@ -104,8 +73,7 @@ header{
   font-size:14px;
 }
 
-.nav-links a:hover,
-.nav-links a.active{
+.nav-links a:hover,.nav-links a.active{
   background:#eaf1ff;
   color:var(--blue);
 }
@@ -120,53 +88,22 @@ header{
   font-weight:800;
 }
 
-/* PAGE HEADER */
 .page-head{
   background:linear-gradient(135deg,#102a56,#1769e0);
   color:#fff;
   padding:42px 18px;
 }
 
-.page-head-inner{
-  max-width:1200px;
-  margin:auto;
-}
+.page-head-inner{max-width:1200px;margin:auto}
+.page-head h1{font-size:38px}
+.page-head p{margin-top:6px;opacity:.9}
 
-.page-head h1{
-  font-size:38px;
-}
+.container{max-width:1200px;margin:auto;padding:0 18px}
+.section{padding:35px 0}
+.section-head{margin-bottom:20px}
+.section-head h2{color:var(--navy);font-size:28px}
+.section-head p{color:#667085;margin-top:5px}
 
-.page-head p{
-  margin-top:6px;
-  opacity:.9;
-}
-
-/* MAIN */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:0 18px;
-}
-
-.section{
-  padding:35px 0;
-}
-
-.section-head{
-  margin-bottom:20px;
-}
-
-.section-head h2{
-  color:var(--navy);
-  font-size:28px;
-}
-
-.section-head p{
-  color:#667085;
-  margin-top:5px;
-}
-
-/* CATEGORY GRID */
 .category-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -199,16 +136,8 @@ header{
   background:#eaf1ff;
 }
 
-.category-card h3{
-  color:var(--navy);
-  font-size:19px;
-  margin-bottom:5px;
-}
-
-.category-card p{
-  color:#667085;
-  font-size:13px;
-}
+.category-card h3{color:var(--navy);font-size:19px;margin-bottom:5px}
+.category-card p{color:#667085;font-size:13px}
 
 .select-btn{
   border:0;
@@ -220,10 +149,7 @@ header{
   margin-top:15px;
 }
 
-/* TEST AREA */
-#testArea{
-  display:none;
-}
+#testArea{display:none}
 
 .selected-category{
   background:#fff;
@@ -237,10 +163,7 @@ header{
   box-shadow:0 7px 22px rgba(20,45,85,.08);
 }
 
-.selected-category h2{
-  color:var(--navy);
-  font-size:22px;
-}
+.selected-category h2{color:var(--navy);font-size:22px}
 
 .back-btn{
   border:0;
@@ -275,16 +198,8 @@ header{
   font-weight:900;
 }
 
-.test-card h3{
-  color:var(--navy);
-  margin:11px 0 5px;
-  font-size:19px;
-}
-
-.test-card p{
-  color:#667085;
-  font-size:14px;
-}
+.test-card h3{color:var(--navy);margin:11px 0 5px;font-size:19px}
+.test-card p{color:#667085;font-size:14px}
 
 .start-btn{
   display:inline-block;
@@ -297,16 +212,9 @@ header{
   font-weight:800;
 }
 
-.full-test{
-  border:2px solid #1769e0;
-}
+.full-test{border:2px solid #1769e0}
+.full-test .test-number{background:#1769e0;color:#fff}
 
-.full-test .test-number{
-  background:#1769e0;
-  color:#fff;
-}
-
-/* FOOTER */
 footer{
   background:var(--navy);
   color:#fff;
@@ -323,10 +231,7 @@ footer{
   flex-wrap:wrap;
 }
 
-.footer-inner p{
-  color:#d4deef;
-  font-size:13px;
-}
+.footer-inner p{color:#d4deef;font-size:13px}
 
 .footer-bottom{
   text-align:center;
@@ -336,86 +241,27 @@ footer{
   font-size:12px;
 }
 
-/* MOBILE */
 @media(max-width:850px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .category-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .test-grid{
-    grid-template-columns:1fr;
-  }
+  .nav-links{display:none}
+  .category-grid{grid-template-columns:1fr 1fr}
+  .test-grid{grid-template-columns:1fr}
 }
 
 @media(max-width:600px){
-
-  .navbar{
-    padding:8px 12px;
-  }
-
-  .logo strong{
-    font-size:17px;
-  }
-
-  .logo-mark{
-    width:39px;
-    height:39px;
-  }
-
-  .login-btn{
-    font-size:11px;
-    padding:9px 11px;
-  }
-
-  .page-head{
-    padding:32px 15px;
-  }
-
-  .page-head h1{
-    font-size:28px;
-  }
-
-  .container{
-    padding:0 13px;
-  }
-
-  .category-grid{
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-  }
-
-  .category-card{
-    padding:18px 10px;
-  }
-
-  .category-icon{
-    width:55px;
-    height:55px;
-    font-size:27px;
-  }
-
-  .category-card h3{
-    font-size:16px;
-  }
-
-  .category-card p{
-    font-size:11px;
-  }
-
-  .select-btn{
-    font-size:12px;
-    padding:9px 12px;
-  }
-
-  .selected-category{
-    align-items:flex-start;
-    flex-direction:column;
-  }
+  .navbar{padding:8px 12px}
+  .logo strong{font-size:17px}
+  .logo-mark{width:39px;height:39px}
+  .login-btn{font-size:11px;padding:9px 11px}
+  .page-head{padding:32px 15px}
+  .page-head h1{font-size:28px}
+  .container{padding:0 13px}
+  .category-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .category-card{padding:18px 10px}
+  .category-icon{width:55px;height:55px;font-size:27px}
+  .category-card h3{font-size:16px}
+  .category-card p{font-size:11px}
+  .select-btn{font-size:12px;padding:9px 12px}
+  .selected-category{align-items:flex-start;flex-direction:column}
 }
 </style>
 </head>
@@ -445,14 +291,12 @@ footer{
 </nav>
 </header>
 
-
 <section class="page-head">
 <div class="page-head-inner">
   <h1>📝 BPSC TRE 4.0 Mock Tests</h1>
   <p>Apni teacher category select karein aur practice test start karein.</p>
 </div>
 </section>
-
 
 <div class="container">
 
@@ -469,57 +313,42 @@ footer{
   <div class="category-icon">👨‍🏫</div>
   <h3>Primary</h3>
   <p>Class 1 – 5</p>
-  <button class="select-btn" onclick="showTests('Primary')">
-    View Tests →
-  </button>
+  <button class="select-btn" onclick="showTests('Primary')">View Tests →</button>
 </div>
 
 <div class="category-card">
   <div class="category-icon">📘</div>
   <h3>Middle School</h3>
   <p>Class 6 – 8</p>
-  <button class="select-btn" onclick="showTests('Middle School')">
-    View Tests →
-  </button>
+  <button class="select-btn" onclick="showTests('Middle School')">View Tests →</button>
 </div>
 
 <div class="category-card">
   <div class="category-icon">🎓</div>
   <h3>Secondary</h3>
   <p>Class 9 – 10</p>
-  <button class="select-btn" onclick="showTests('Secondary')">
-    View Tests →
-  </button>
+  <button class="select-btn" onclick="showTests('Secondary')">View Tests →</button>
 </div>
 
 <div class="category-card">
   <div class="category-icon">🏫</div>
   <h3>Higher Secondary</h3>
   <p>Class 11 – 12</p>
-  <button class="select-btn" onclick="showTests('Higher Secondary')">
-    View Tests →
-  </button>
+  <button class="select-btn" onclick="showTests('Higher Secondary')">View Tests →</button>
 </div>
 
 </div>
 </section>
 
-
 <section class="section" id="testArea">
 
 <div class="selected-category">
-
 <div>
   <h2 id="categoryTitle">Mock Tests</h2>
   <p>Practice tests aur full-length test.</p>
 </div>
-
-<button class="back-btn" onclick="backToCategories()">
-  ← Categories
-</button>
-
+<button class="back-btn" onclick="backToCategories()">← Categories</button>
 </div>
-
 
 <div class="test-grid">
 
@@ -527,72 +356,51 @@ footer{
 <span class="test-number">MOCK TEST 01</span>
 <h3 id="test01">Practice Test – 01</h3>
 <p>Exam-style questions • Timer • Result Analysis</p>
-<button class="start-btn" onclick="startTest01()">
-  Start Test →
-</button>
+<button class="start-btn" onclick="startTest01()">Start Test →</button>
 </article>
-
 
 <article class="test-card">
 <span class="test-number">MOCK TEST 02</span>
 <h3 id="test02">Practice Test – 02</h3>
 <p>Practice questions • Timer • Detailed Result</p>
-<button class="start-btn" onclick="comingSoon()">
-  Start Test →
-</button>
+<button class="start-btn" onclick="startTest02()">Start Test →</button>
 </article>
-
 
 <article class="test-card">
 <span class="test-number">MOCK TEST 03</span>
 <h3 id="test03">Practice Test – 03</h3>
 <p>Exam-style practice • Timer • Analysis</p>
-<button class="start-btn" onclick="comingSoon()">
-  Start Test →
-</button>
+<button class="start-btn" onclick="startTest03()">Start Test →</button>
 </article>
-
 
 <article class="test-card">
 <span class="test-number">MOCK TEST 04</span>
 <h3 id="test04">Practice Test – 04</h3>
 <p>Topic practice • Result Analysis</p>
-<button class="start-btn" onclick="comingSoon()">
-  Start Test →
-</button>
+<button class="start-btn" onclick="startTest04()">Start Test →</button>
 </article>
-
 
 <article class="test-card full-test">
 <span class="test-number">FULL LENGTH</span>
 <h3>Full Length Mock Test</h3>
 <p>Complete exam simulation • Timer • Detailed Result</p>
-<button class="start-btn" onclick="comingSoon()">
-  Start Full Test →
-</button>
+<button class="start-btn" onclick="comingSoon()">Start Full Test →</button>
 </article>
-
 
 <article class="test-card">
 <span class="test-number">COMING SOON</span>
 <h3>More Mock Tests</h3>
 <p>New practice tests will be added here.</p>
-<button class="start-btn" onclick="comingSoon()">
-  Coming Soon
-</button>
+<button class="start-btn" onclick="comingSoon()">Coming Soon</button>
 </article>
 
 </div>
-
 </section>
-
 </div>
-
 
 <footer>
 
 <div class="footer-inner">
-
 <div>
 <h2>BPSC TRE 4.0</h2>
 <p>Mock Test Portal</p>
@@ -601,7 +409,6 @@ footer{
 <div>
 <p>Practice smart • Prepare better • Crack TRE 4.0</p>
 </div>
-
 </div>
 
 <div class="footer-bottom">
@@ -610,13 +417,11 @@ footer{
 
 </footer>
 
-
 <script>
 
 function showTests(category){
 
   document.getElementById("categoryArea").style.display="none";
-
   document.getElementById("testArea").style.display="block";
 
   document.getElementById("categoryTitle").innerHTML =
@@ -634,53 +439,87 @@ function showTests(category){
   document.getElementById("test04").innerHTML =
   category + " Practice Test – 04";
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+  window.scrollTo({top:0,behavior:"smooth"});
 }
-
 
 function backToCategories(){
 
   document.getElementById("testArea").style.display="none";
-
   document.getElementById("categoryArea").style.display="block";
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
+/* TEST 01 */
 function startTest01(){
 
   const category = document.getElementById("categoryTitle").innerText;
 
   if(category.includes("Primary")){
-
     window.location.href = "practice-test-01.html";
-
   }else{
-
     alert(
       "Practice Test 01 abhi Primary (Class 1–5) ke liye available hai.\n\n" +
       "Baaki categories ke tests jaldi add kiye jayenge."
     );
-
   }
-
 }
+
+/* TEST 02 */
+function startTest02(){
+
+  const category = document.getElementById("categoryTitle").innerText;
+
+  if(category.includes("Primary")){
+    window.location.href = "practice-test-02.html";
+  }else{
+    alert(
+      "Practice Test 02 abhi Primary (Class 1–5) ke liye available hai.\n\n" +
+      "Baaki categories ke tests jaldi add kiye jayenge."
+    );
+  }
+}
+
+/* TEST 03 */
+function startTest03(){
+
+  const category = document.getElementById("categoryTitle").innerText;
+
+  if(category.includes("Primary")){
+    window.location.href = "practice-test-03.html";
+  }else{
+    alert(
+      "Practice Test 03 abhi Primary (Class 1–5) ke liye available hai.\n\n" +
+      "Baaki categories ke tests jaldi add kiye jayenge."
+    );
+  }
+}
+
+/* TEST 04 */
+function startTest04(){
+
+  const category = document.getElementById("categoryTitle").innerText;
+
+  if(category.includes("Primary")){
+    window.location.href = "practice-test-04.html";
+  }else{
+    alert(
+      "Practice Test 04 abhi Primary (Class 1–5) ke liye available hai.\n\n" +
+      "Baaki categories ke tests jaldi add kiye jayenge."
+    );
+  }
+}
+
 function comingSoon(){
 
   alert(
     "Mock Test system abhi preparation stage me hai.\n\n" +
     "Questions, timer aur result system next step me add kiya jayega."
   );
-
 }
 
 </script>
 
 </body>
   </html>
+  
