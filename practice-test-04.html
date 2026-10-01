@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BPSC TRE Practice Test 04</title>
+<style>
+:root{--primary:#2563eb;--dark:#0f172a;--bg:#f1f5f9;--card:#fff;--muted:#64748b;--ok:#16a34a;--bad:#dc2626}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#111827}
+.header{background:linear-gradient(135deg,#0f172a,#1d4ed8);color:#fff;padding:18px 14px;position:sticky;top:0;z-index:5;box-shadow:0 2px 12px #0002}
+.header h1{margin:0;font-size:21px}.sub{margin-top:6px;font-size:13px;opacity:.9}
+.topbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}
+.badge{background:#ffffff20;border:1px solid #ffffff35;padding:7px 10px;border-radius:9px;font-size:12px}
+.timer{margin-left:auto;background:#fff;color:#b91c1c;font-weight:800;padding:8px 12px;border-radius:9px;min-width:90px;text-align:center}
+.wrap{max-width:1050px;margin:18px auto;padding:0 12px}.notice{background:#fff;border-left:4px solid var(--primary);padding:13px 14px;border-radius:10px;margin-bottom:14px;box-shadow:0 1px 6px #0000000b;font-size:13px;line-height:1.55}
+.layout{display:grid;grid-template-columns:1fr 260px;gap:15px}
+.card{background:var(--card);border-radius:13px;padding:16px;box-shadow:0 2px 10px #0000000d}
+.qhead{display:flex;justify-content:space-between;gap:10px;align-items:center;color:var(--muted);font-size:13px;margin-bottom:13px}
+.qtext{font-size:19px;font-weight:700;line-height:1.5;margin-bottom:17px}
+.option{display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;border:1px solid #dbe2ea;background:#fff;border-radius:10px;padding:12px;margin:9px 0;cursor:pointer;font-size:15px;line-height:1.35}
+.option:hover{border-color:#93c5fd;background:#eff6ff}.option.selected{border-color:var(--primary);background:#dbeafe}.letter{font-weight:800;min-width:22px}
+.nav{display:flex;gap:9px;margin-top:15px}.btn{border:0;border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer}.prev{background:#e2e8f0}.next{background:var(--primary);color:#fff}.submit{background:#16a34a;color:#fff;margin-left:auto}
+.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.pbtn{border:0;background:#e2e8f0;border-radius:7px;padding:8px 0;font-weight:700;cursor:pointer}.pbtn.done{background:#bfdbfe}.pbtn.current{outline:3px solid #2563eb}.legend{font-size:12px;color:var(--muted);line-height:1.5;margin:0 0 10px}
+.result{display:none}.result h2{margin-top:0}.score{font-size:34px;font-weight:900;color:#16a34a}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:15px 0}.stat{background:#f8fafc;border-radius:10px;padding:12px;text-align:center}.stat b{display:block;font-size:22px}.review{margin-top:14px}.review-item{padding:12px;border-radius:10px;margin:9px 0;background:#f8fafc;border-left:4px solid #94a3b8}.review-item.correct{border-left-color:var(--ok)}.review-item.wrong{border-left-color:var(--bad)}
+.progress{height:7px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin:10px 0 14px}.bar{height:100%;background:var(--primary);width:0}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.sidebar{order:-1}.qtext{font-size:17px}.timer{margin-left:0}.stats{grid-template-columns:1fr 1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="header">
+  <h1>📘 BPSC TRE Practice Test 04</h1>
+  <div class="sub">2023 Language Paper-I • Series A • Duplicate-filtered</div>
+  <div class="topbar">
+    <span class="badge">25 Questions</span><span class="badge">English Language</span><span class="badge">25 Marks</span>
+    <span class="timer" id="timer">30:00</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="notice">
+    <b>Important:</b> This practice test contains the <b>25 English questions</b> from the 25 August 2023 Language Paper-I, Series A.
+    The Hindi H-26 to H-100 portion was not repeated here because it is already included in Practice Test 03.
+    The source booklet itself has Part-I Q1–25 and Part-II Hindi H-26–H-100. 
+  </div>
+
+  <div class="layout">
+    <main>
+      <section class="card" id="quizCard">
+        <div class="qhead"><span id="qno">Question 1 of 25</span><span id="answered">Answered: 0/25</span></div>
+        <div class="progress"><div class="bar" id="bar"></div></div>
+        <div id="questionBox"></div>
+        <div class="nav">
+          <button class="btn prev" onclick="prevQ()">← Previous</button>
+          <button class="btn next" onclick="nextQ()">Next →</button>
+          <button class="btn submit" onclick="submitQuiz()">Submit</button>
+        </div>
+      </section>
+
+      <section class="card result" id="resultCard">
+        <h2>🎉 Test Result</h2>
+        <div class="score" id="score"></div>
+        <div class="stats">
+          <div class="stat"><b id="correct">0</b>Correct</div>
+          <div class="stat"><b id="wrong">0</b>Wrong</div>
+          <div class="stat"><b id="unattempted">0</b>Unattempted</div>
+        </div>
+        <div id="review" class="review"></div>
+        <button class="btn next" onclick="location.reload()">🔄 Try Again</button>
+      </section>
+    </main>
+
+    <aside class="card sidebar">
+      <div class="legend"><b>Question Palette</b><br>Blue = answered • Outline = current</div>
+      <div class="palette" id="palette"></div>
+    </aside>
+  </div>
+</div>
+
+<script>
+const questions = [{"n": 1, "q": "Your brother is appointed as _____ SDO.", "opts": ["a", "an", "the", "More than one of the above", "None of the above"], "ans": 1}, {"n": 2, "q": "If I can’t move this desk, will you give it _____ push?", "opts": ["a", "an", "the", "More than one of the above", "None of the above"], "ans": 0}, {"n": 3, "q": "Bring _____ book I gave you yesterday.", "opts": ["the", "an", "a", "More than one of the above", "None of the above"], "ans": 0}, {"n": 4, "q": "Anand went to the doctor because he had _____ ear infection.", "opts": ["a", "an", "the", "More than one of the above", "None of the above"], "ans": 1}, {"n": 5, "q": "He is pursuing MA from _____ University.", "opts": ["a", "an", "the", "More than one of the above", "None of the above"], "ans": 0}, {"n": 6, "q": "Which is not a part of a plant?", "opts": ["Leaves", "Branches", "Birds and animals", "More than one of the above", "None of the above"], "ans": 2}, {"n": 7, "q": "Which of the following you do not use in a computer?", "opts": ["Hard drive", "Keyboard", "Toothbrush", "More than one of the above", "None of the above"], "ans": 2}, {"n": 8, "q": "What among the following a lady does not use in kitchen?", "opts": ["Drier", "Oven", "Induction", "More than one of the above", "None of the above"], "ans": 0}, {"n": 9, "q": "Which one is not allowed in an examination?", "opts": ["Mobile phone", "Earphone", "Book", "More than one of the above", "None of the above"], "ans": 3}, {"n": 10, "q": "Which of the following is not found in a hospital?", "opts": ["Nurse", "Operation theatre", "Telescope", "More than one of the above", "None of the above"], "ans": 2}, {"n": 11, "q": "The person who writes a book is known as its", "opts": ["reader", "author", "publisher", "More than one of the above", "None of the above"], "ans": 1}, {"n": 12, "q": "If today is Wednesday, day after tomorrow will be", "opts": ["Tuesday", "Thursday", "Monday", "More than one of the above", "None of the above"], "ans": 4}, {"n": 13, "q": "We must _____ traffic signals.", "opts": ["not break", "break", "not follow", "More than one of the above", "None of the above"], "ans": 0}, {"n": 14, "q": "If today is the 12th of December, the next month will be", "opts": ["April", "January", "February", "More than one of the above", "None of the above"], "ans": 1}, {"n": 15, "q": "A month can have _____ days.", "opts": ["28 or 29", "30", "31", "More than one of the above", "None of the above"], "ans": 3}, {"n": 16, "q": "Daughter’s daughter is", "opts": ["sister", "granddaughter", "cousin", "More than one of the above", "None of the above"], "ans": 1}, {"n": 17, "q": "Grandfather’s father is", "opts": ["grandpa", "great grandfather", "father", "More than one of the above", "None of the above"], "ans": 1}, {"n": 18, "q": "Mother’s father is", "opts": ["paternal grandfather", "maternal grandfather", "great grandfather", "More than one of the above", "None of the above"], "ans": 1}, {"n": 19, "q": "Aunt’s daughter is", "opts": ["mother", "grandmother", "niece", "More than one of the above", "None of the above"], "ans": 4}, {"n": 20, "q": "Mother’s and father’s children are", "opts": ["sisters and brothers", "cousins", "aunts and uncles", "More than one of the above", "None of the above"], "ans": 0}, {"n": 21, "q": "Whom did the Forest God pray to?", "opts": ["The hunter", "The deer", "The Rain God", "More than one of the above", "None of the above"], "ans": 2}, {"n": 22, "q": "The Forest God was very _____ that he could not protect his animals.", "opts": ["joyous", "sad", "neutral", "More than one of the above", "None of the above"], "ans": 1}, {"n": 23, "q": "In which season did the animals have enough to eat and drink?", "opts": ["Summer", "Monsoon", "All through the year", "More than one of the above", "None of the above"], "ans": 1}, {"n": 24, "q": "When the hunter came to the forest, it was", "opts": ["winter", "monsoon", "summer", "More than one of the above", "None of the above"], "ans": 2}, {"n": 25, "q": "Who killed the deer?", "opts": ["Rain God", "Forest God", "A hunter", "More than one of the above", "None of the above"], "ans": 2}];
+let current=0, answers=Array(questions.length).fill(null), submitted=false;
+let seconds=30*60, timerId;
+
+function render(){
+  const x=questions[current];
+  document.getElementById('qno').textContent=`Question ${current+1} of ${questions.length}`;
+  document.getElementById('answered').textContent=`Answered: ${answers.filter(v=>v!==null).length}/${questions.length}`;
+  document.getElementById('bar').style.width=((current+1)/questions.length*100)+'%';
+  let s=`<div class="qtext">${x.q}</div>`;
+  x.opts.forEach((o,i)=>{
+    s+=`<button class="option ${answers[current]===i?'selected':''}" onclick="choose(${i})">
+      <span class="letter">${String.fromCharCode(65+i)}.</span><span>${o}</span>
+    </button>`;
+  });
+  document.getElementById('questionBox').innerHTML=s;
+  renderPalette();
+}
+function choose(i){answers[current]=i;render();}
+function renderPalette(){
+  const p=document.getElementById('palette');p.innerHTML='';
+  questions.forEach((x,i)=>{
+    const b=document.createElement('button');b.className='pbtn '+(answers[i]!==null?'done ':'')+(i===current?'current':'');
+    b.textContent=i+1;b.onclick=()=>{current=i;render()};p.appendChild(b);
+  });
+}
+function nextQ(){if(current<questions.length-1){current++;render();}else alert('Last question. Submit the test.');}
+function prevQ(){if(current>0){current--;render();}}
+function submitQuiz(){
+  if(!confirm('Submit the test now?')) return;
+  submitted=true; clearInterval(timerId);
+  let c=0;questions.forEach((x,i)=>{if(answers[i]===x.ans)c++;});
+  const w=answers.reduce((n,a,i)=>n+(a!==null&&a!==questions[i].ans?1:0),0);
+  const u=questions.length-c-w;
+  document.getElementById('quizCard').style.display='none';
+  document.querySelector('.sidebar').style.display='none';
+  document.getElementById('resultCard').style.display='block';
+  document.getElementById('score').textContent=`${c}/${questions.length} (${Math.round(c/questions.length*100)}%)`;
+  document.getElementById('correct').textContent=c;
+  document.getElementById('wrong').textContent=w;
+  document.getElementById('unattempted').textContent=u;
+  let r='<h3>📝 Review</h3>';
+  questions.forEach((x,i)=>{
+    const cls=answers[i]===null?'':(answers[i]===x.ans?'correct':'wrong');
+    const your=answers[i]===null?'Not attempted':String.fromCharCode(65+answers[i])+'. '+x.opts[answers[i]];
+    const key=String.fromCharCode(65+x.ans)+'. '+x.opts[x.ans];
+    r+=`<div class="review-item ${cls}"><b>Q${i+1}.</b> ${x.q}<br><small>Your answer: ${your}<br>Correct answer: ${key}</small></div>`;
+  });
+  document.getElementById('review').innerHTML=r;
+}
+function tick(){
+  if(submitted)return;
+  seconds--;
+  if(seconds<=0){seconds=0;document.getElementById('timer').textContent='00:00';submitQuiz();return;}
+  const m=String(Math.floor(seconds/60)).padStart(2,'0'),s=String(seconds%60).padStart(2,'0');
+  document.getElementById('timer').textContent=`${m}:${s}`;
+}
+timerId=setInterval(tick,1000); render();
+</script>
+</body>
+</html>
